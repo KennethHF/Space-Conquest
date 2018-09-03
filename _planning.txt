@@ -7,13 +7,13 @@
 
 
 Resources []:
- Population [P]
- Foods [F]
- Goods [G]
- Light Materials [L]
- Heavy Materials [H]
- Isotopes [I]
- Fuels [U]
+ Population [P] - 5k (local to planet)
+ Foods [F] - 1U feeds 1k (local to planet) acts more like a "supply depot" for population cap
+ Goods [G] - Economy
+ Light Materials [L] - Industry (buildings)
+ Heavy Materials [H] - Industry (ships building)
+ Isotopes [I] - Ships building
+ Fuels [U] - Ships maintenace
  
 
 Planet types range on a sliding scale
@@ -71,7 +71,7 @@ Structures fall into the following categories:
 AUTO - Always exists on all planets (1 only) as soon as planet is controlled by
 player.  These structures do not count against {M}:
 
- (C) COLONY - Generates [P], can be upgraded
+ (C) COLONY - Generates [P], can be upgraded - ([F]5U) LII-([F]7U) LIII-([F]10U)
  (X) STATION - Provides small planetary defense, can be upgraded
 
 EXTRACTORS - Responsible for pulling the resources from the planet at the % of the above stats.
