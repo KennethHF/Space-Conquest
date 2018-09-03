@@ -1,0 +1,120 @@
+    push(); 
+    translate(capture.width,0); 
+    scale(-1.0,1.0); 
+    image(capture,0,0); 
+    pop();
+    image(capture,0,0,width/2,height/2); 
+
+
+Resources []:
+ Population [P]
+ Foods [F]
+ Goods [G]
+ Light Materials [L]
+ Heavy Materials [H]
+ Isotopes [I]
+ Fuels [U]
+ 
+
+Planet types range on a sliding scale
+
+# <- - - - - - - - - - - - - - - - - - - - - - - - - - - - -> #
+[U]   [I]           [H]      [L]     [G]      [F]      [P]
+
+Gas - Radioactive - Toxic - Barren - Rocky - Organic - Vegetative
+
+
+Their position on the scale determines % of available resource.
+For example, Toxic aligns with [H], therefore is most abundant
+in that resource (at 100% output).  Moving left to right from [H], the abundance
+decreases.
+
+Off    ---X    --X    -X     X     X-    X--    X---    Off
+10%     25%    50%   75%    100%   75%   50%    25%      10%
+
+
+Examples of Base Stats (pre-modifiers)
+
+Gas Planet:     Toxic Planet:   Vegetative Planet:    
+[U] = 100%      [U] = 50%       [U] = 10%
+[I] = 75%       [I] = 75%       [I] = 10%
+[H] = 50%       [H] = 100%      [H] = 10%
+[L] = 25%       [L] = 75%       [L] = 25%
+[G] = 10%       [G] = 50%       [G] = 50%
+[F] = 10%       [F] = 25%       [F] = 75%
+[P] = 10%       [P] = 10%       [P] = 100% 
+
+
+Modifiers {} range from -10 to 10 (float values).
+They are randomly generated when the planet is created and applied directly to
+the base stat (example: -4.3 modifier to 100% base stat = 95.7% output)
+
+ MODIFIERS:
+
+ {T} TROPOSPHERE - Effects [P]
+ {B} BIOSPHERE - Effects [F]
+ {E} ENVIRONMENT - Effects [G]
+ {G} GEOLOGY - Effects [L]
+ {C} TECTONICS - Effects [H]
+ {A} ALBEDO - Effects [I]
+ {S} STRATOSPHERE - Effects [U]
+
+Structures () are built on a planet by the owner.  They can be upgraded twice, allowing
+for 3 levels (LI initial build, LII upgrade once, LIII upgrade twice).  Levels have the values: +1, +3, +6.  
+Except for AUTO categories, all buildings can be built as many times as desired, up until the planet max 
+limit is reached. 
+
+Max Limit {M} of structures per planet should be one of these random numbers: 6, 9, 12, 15, 18.
+
+Structures fall into the following categories:
+
+AUTO - Always exists on all planets (1 only) as soon as planet is controlled by
+player.  These structures do not count against {M}:
+
+ (C) COLONY - Generates [P], can be upgraded
+ (X) STATION - Provides small planetary defense, can be upgraded
+
+EXTRACTORS - Responsible for pulling the resources from the planet at the % of the above stats.
+
+ (F) FARM - Gathers [F]
+ (E) EXCHANGE - Gathers [G]
+ (M) MINE - Gathers [L]
+ (T) FACTORY - Gathers [H]
+ (P) PLANT - Gathers [I]
+ (H) HARVESTER - Gathers [U]
+
+IMPROVEMENTS increase the modifiers.
+
+ (R) TERRAFORMER - Increases {T}
+ (D) BIODOME - Increases {B}
+ (Y) RECYLER - Increases {E}
+ (B) "Planetary" STABILIZERS - Increases {G}
+ (I) "Fault" INHIBITORS- Increases {C}
+ (U) "Solar" DISTRIBUTORS - Increases {A}
+ (N) "Atmospheric" CONDENSERS - Increases {S}
+
+CONSTRUCTORS can be clicked on to allow other actions such as building ships, crew, or research
++1 progress per tick (LI), +3(LII), +6(LIII)
+
+ (L) LABORATORY - Allows researches
+ (A) ACADEMY - Allows training of crew
+ (O) STARPORT - Allows building of ships
+
+EXTRA structures provide unique bonuses
+ 
+ (X1) TURRET - Increases damage against an attacker of the planet
+ (X2) SHIELD - Increases defense against an attacker of the planet
+ (X3) SENSORS - Increases intel of incoming fleets, nearby planets 
+  
+
+Building costs:
+                 [P]     [F]     [G]     [L]     [H]     [I]     [U]
+
+ (F)LI		 25
+ (F)LII          50
+ (F)LIII         75
+  
+ 
+ 
+ 
+   
