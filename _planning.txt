@@ -1,35 +1,59 @@
 LEGEND: ---- [] = Resource, {} = Building, <> = Research, () = Modifier/Special Effect
 
+Design:
+  Width = 400
+  [SLOT] = 124W x 52H
+  |-7-[SLOT]-7-[SLOT]-7-[SLOT]-7-|
+
+  [SLOT_H] = 52 / Height = 600
+  |-4- [SLOT_H] -4-|
+
+  space on top = 2 rows
+  18x max ground slots = 6 rows
+  3x max orbit slots = 1 row
+  space on bottom = 1 row
+  ____________________________
+                   10 rows total
+
+
 Resource List:
 
-  Population [P]
-  Food [F] - 
-  Goods [G]
+  *Population [P]
+  *Food [F]
+  Currency [C]
+  Consumer Goods [G]
   Light Materials [L]
   Heavy Materials [H]
   Isotopes [I]
   Fuels [U]
-  
+  Innovation [V]
+
+  *Local resource; cannot be transfered across planets.  
 
 PLANET:
 
+  Limits:
+
+    Maximum ground building slots - 18
+    Maximum orbital building slots - 3
+
   Types:
 
-    Gas (G)
-    Radioactive (R)
-    Toxic (T)
-    Barren (B)
-    Rocky (K)
-    Organic (O)
-    Vegetative (V)
+    Gas (G) - max building slots 0
+    Radioactive (R) - max building slots 9
+    Toxic (T) - max building slots 15
+    Barren (B) - max building slots 18
+    Rocky (K) - mbs 18
+    Organic (O) - mbs 18
+    Vegetative (V) - mbs 18
     
 
   Population [P] - Starts at 50 when a planet is first colonized.  The Colony Hub {H} building determines the max population cap (CAP).  Food [F] determines how fast the population increases and is necessary to sustain the current population level.
 
-    Colony Hub {H} - As the hub increases in levels (L), in addition to raising the population cap, it also unlocks higher level buildings and slots (SLT).
+    Colony Hub {H} - This structure is automatically built and always exists on a planet after a colony has been established.  As the hub increases in levels (L), in addition to raising the population cap, it also unlocks higher level buildings and slots (SLT).
 
       Levels:				BENEFITS			COST
-	I = Default Building 	    300 (CAP), 6 (SLT), 8[F]*, 4[G]* 	Colony Ship
+	I = Default Building 	    300 (CAP), 6 (SLT), 8[F]* 		Colony Ship
 	II = 		            600 (CAP), 9 (SLT), II (L) 		500 [G], 100 [L], 200 [P]
 	III = 			    900 (CAP), 12 (SLT), III(L)		1000 [G], 500 [L], 100 [H], 450 [P]
 	IV = 			    1200 (CAP), 15 (SLT), IV (L)	5000 [G], 1000 [L], 500 [H], 700 [p]
@@ -37,18 +61,25 @@ PLANET:
 
 	*All {H}(L)'s resource benefit does not increase with leveling
 
+  Currency [C] - Generated as a percentage of the population.  Certain buildings can improve generated [C].
+
+
+
+
+
+
     Farm {F} - Produces food [F].  No building limit. 0.06 units (U) of food [F] feeds 1 person. 1 (U) feeds approx. 16.6 population ([F] / .06 = supported population)
 
-      Levels:				BENEFITS			COST
-	I = 				8 [F]				1 (SLT), 50 [G]
-	II = 				10 [F]				150 [G]
+      Levels:				BENEFITS			COST			UPKEEP
+	I = 				8 [F]				1 (SLT), 50 [C]		5 [C]
+	II = 				10 [F]				150 [G]			
 	III =				12 [F]				300 [G]
 	IV = 				15 [F]				500 [G]
 	V = 				20 [F]				750 [G]
 
     Exchange {E} - Gathers goods [G]. No building limit.
 
-      Levels:				BENEFITS			COST
+      Levels:				BENEFITS			COST			UPKEEP
 
 	I =				5 [G]				1 (SLT), 25 [G]
 	II =				8 [G]				50 [G], 
