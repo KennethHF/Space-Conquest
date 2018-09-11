@@ -1,4 +1,96 @@
-    push(); 
+LEGEND: ---- [] = Resource, {} = Building, <> = Research, () = Modifier/Special Effect
+
+Resource List:
+
+  Population [P]
+  Food [F] - 
+  Goods [G]
+  Light Materials [L]
+  Heavy Materials [H]
+  Isotopes [I]
+  Fuels [U]
+  
+
+PLANET:
+
+  Types:
+
+    Gas (G)
+    Radioactive (R)
+    Toxic (T)
+    Barren (B)
+    Rocky (K)
+    Organic (O)
+    Vegetative (V)
+    
+
+  Population [P] - Starts at 50 when a planet is first colonized.  The Colony Hub {H} building determines the max population cap (CAP).  Food [F] determines how fast the population increases and is necessary to sustain the current population level.
+
+    Colony Hub {H} - As the hub increases in levels (L), in addition to raising the population cap, it also unlocks higher level buildings and slots (SLT).
+
+      Levels:				BENEFITS			COST
+	I = Default Building 	    300 (CAP), 6 (SLT), 8[F]*, 4[G]* 	Colony Ship
+	II = 		            600 (CAP), 9 (SLT), II (L) 		500 [G], 100 [L], 200 [P]
+	III = 			    900 (CAP), 12 (SLT), III(L)		1000 [G], 500 [L], 100 [H], 450 [P]
+	IV = 			    1200 (CAP), 15 (SLT), IV (L)	5000 [G], 1000 [L], 500 [H], 700 [p]
+	V = Max Level		    1500 (CAP), 18 (SLT), V (L)		10k [G], 5000 [L], 1000 [H], 950 [p]
+
+	*All {H}(L)'s resource benefit does not increase with leveling
+
+    Farm {F} - Produces food [F].  No building limit. 0.06 units (U) of food [F] feeds 1 person. 1 (U) feeds approx. 16.6 population ([F] / .06 = supported population)
+
+      Levels:				BENEFITS			COST
+	I = 				8 [F]				1 (SLT), 50 [G]
+	II = 				10 [F]				150 [G]
+	III =				12 [F]				300 [G]
+	IV = 				15 [F]				500 [G]
+	V = 				20 [F]				750 [G]
+
+    Exchange {E} - Gathers goods [G]. No building limit.
+
+      Levels:				BENEFITS			COST
+
+	I =				5 [G]				1 (SLT), 25 [G]
+	II =				8 [G]				50 [G], 
+	III =				13 [G]
+	IV =				20 [G]
+	V =				30 [G]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------
+
+OLD PLANNING BELOW
+
+//--------------------------------------------------------
+
+
+
+
+
+
+push(); 
     translate(capture.width,0); 
     scale(-1.0,1.0); 
     image(capture,0,0); 
@@ -7,13 +99,13 @@
 
 
 Resources []:
- Population [P] - 5k (local to planet)
- Foods [F] - 1U feeds 1k (local to planet) acts more like a "supply depot" for population cap
- Goods [G] - Economy
- Light Materials [L] - Industry (buildings)
- Heavy Materials [H] - Industry (ships building)
- Isotopes [I] - Ships building
- Fuels [U] - Ships maintenace
+ Population [P]
+ Foods [F]
+ Goods [G]
+ Light Materials [L]
+ Heavy Materials [H]
+ Isotopes [I]
+ Fuels [U]
  
 
 Planet types range on a sliding scale
@@ -71,7 +163,7 @@ Structures fall into the following categories:
 AUTO - Always exists on all planets (1 only) as soon as planet is controlled by
 player.  These structures do not count against {M}:
 
- (C) COLONY - Generates [P], can be upgraded - ([F]5U) LII-([F]7U) LIII-([F]10U)
+ (C) COLONY - Generates [P], can be upgraded
  (X) STATION - Provides small planetary defense, can be upgraded
 
 EXTRACTORS - Responsible for pulling the resources from the planet at the % of the above stats.
