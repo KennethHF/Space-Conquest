@@ -60,3 +60,28 @@ function getRandomPlanetName() {
  PLANET_NAMES.splice(r, 1);
  return planetName;
 }
+
+var PLANET_TYPES = {
+ INVALID : -1,
+ GAS : 0,
+ RADIOACTIVE : 1,
+ TOXIC : 2,
+ BARREN : 3,
+ ROCKY : 4,
+ ORGANIC : 5,
+ VEGETATIVE : 6
+};
+
+function getPlanetTypeName(planetTypeValue) {
+ var typeName = "Unknown Planet";
+ switch (planetTypeValue) {
+  case (PLANET_TYPES.GAS): typeName = "Gas Planet"; break;
+  case (PLANET_TYPES.RADIOACTIVE): typeName = "Radioactive Planet"; break;
+  case (PLANET_TYPES.TOXIC): typeName = "Toxic Planet"; break;
+  case (PLANET_TYPES.BARREN): typeName = "Barren Planet"; break;
+  case (PLANET_TYPES.ROCKY): typeName = "Rocky Planet"; break;
+  case (PLANET_TYPES.ORGANIC): typeName = "Organic Planet"; break;
+  case (PLANET_TYPES.VEGETATIVE): typeName = "Vegetative Planet"; break;
+ }
+ return typeName;
+}
