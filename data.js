@@ -106,7 +106,7 @@ var MODIFIER_GROUP = function() {
  this.geology = 0.0; //light m.
  this.tectonics = 0.0; //heavy m.
  this.albedo = 0.0; //isotopes
- this.
+ this.ecosystem = 0.0; //innovation
  this.stratosphere = 0.0; //fuels
 }
 
