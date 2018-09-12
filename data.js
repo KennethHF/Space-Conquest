@@ -98,7 +98,7 @@ var RESOURCE_GROUP = function() {
  this.fuels = 0;
 };
 
-var BIOME_GROUP = function() {
+var MODIFIER_GROUP = function() {
  this.troposphere = 0.0; //pop
  this.biosphere = 0.0; //food
  this.climate = 0.0; //currency
@@ -110,16 +110,11 @@ var BIOME_GROUP = function() {
  this.stratosphere = 0.0; //fuels
 }
 
-var MODIFIER_GROUP = function() {
- this.resources = new RESOURCE_GROUP();
- this
-}
-
 function getPlanetResourceModifiers(planetTypeValue) {
- var r = new MODIFIER_GROUP();
+ var m = new MODIFIER_GROUP();
  switch (planetTypeValue) {
   case (PLANET_TYPE.GAS):
    break;
  }
- return r;
+ return m;
 }
