@@ -85,3 +85,41 @@ function getPlanetTypeName(planetTypeValue) {
  }
  return typeName;
 }
+
+var RESOURCE_GROUP = function() {
+ this.population = 0;
+ this.food = 0;
+ this.currency = 0;
+ this.goods = 0;
+ this.lightmaterials = 0;
+ this.heavymaterials = 0;
+ this.isotopoes = 0;
+ this.innovation = 0;
+ this.fuels = 0;
+};
+
+var BIOME_GROUP = function() {
+ this.troposphere = 0.0; //pop
+ this.biosphere = 0.0; //food
+ this.climate = 0.0; //currency
+ this.environment = 0.0; //goods
+ this.geology = 0.0; //light m.
+ this.tectonics = 0.0; //heavy m.
+ this.albedo = 0.0; //isotopes
+ this.
+ this.stratosphere = 0.0; //fuels
+}
+
+var MODIFIER_GROUP = function() {
+ this.resources = new RESOURCE_GROUP();
+ this
+}
+
+function getPlanetResourceModifiers(planetTypeValue) {
+ var r = new MODIFIER_GROUP();
+ switch (planetTypeValue) {
+  case (PLANET_TYPE.GAS):
+   break;
+ }
+ return r;
+}
