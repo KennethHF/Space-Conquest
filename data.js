@@ -279,7 +279,7 @@ function getPlanetModifiers(planetTypeValue) {
    m.climate = MODIFIER_VALUE.BEST();
    m.environment = MODIFIER_VALUE.BETTER();
    m.geology = MODIFIER_VALUE.POOR();
-   m.albedo = MODIFIER_VALUE.BAD();
+   m.albedo = MODIFIER_VALUE.BAD();r
    m.ecosystem = MODIFIER_VALUE.POOR();
    m.stratosphere = MODIFIER_VALUE.WORST();
    break;
@@ -298,7 +298,58 @@ function getPlanetModifiers(planetTypeValue) {
 }
 
 function getOrbitSlotCount(planetTypeValue, colonyLevel) {
+ var slots = 0;
+ if (isNaN(colonyLevel) || colonyLevel <= 0 || colonyLevel > 5) return 0;
+ switch (planetTypeValue) {
+  case (PLANET_TYPES.GAS):
+   slots = 6;
+   break;
+  case (PLANET_TYPES.RADIOACTIVE):
+  case (PLANET_TYPES.TOXIC):
+   slots = 5;
+   if (colonyLevel <= 2) slots = 3;
+   if (colonyLevel == 3 || colonyLevel == 4) slots = 4;
+   break;
+  case (PLANET_TYPES.BARREN):
+  case (PLANET_TYPES.ROCKY):
+   slots = 4;
+   if (colonyLevel <= 4) slots = 3;
+   break;
+  case (PLANET_TYPES.ORGANIC):
+  case (PLANET_TYPES.VEGETATIVE):
+   slots = 3;
+   break;
+ }
+ return slots;
+}
 
+function getGroundSlotCount(planetTypeValue, colonyLevel) {
+ var slots = 0;
+ if (isNaN(colonyLevel) || colonyLevel <= 0 || colonyLevel > 5) return 0;
+ switch (plnaetTypeValue) {
+  case (PLANET_TYPES.GAS):
+   slots = 0;
+   break;
+  case (PLANET_TYPES.RADIOACTIVE):
+  case (PLANET_TYPES.TOXIC):
+   slots = colonyLevel + 1;
+   break;
+  case (PLANET_TYPES.BARREN):
+   slots = colonyLevel + 3;
+   if (colonyLevel == 4) slots = 8;
+   if (colonyLevel == 5) slots = 9;
+   break;
+  case (PLANET_TYPES.ROCKY):
+   slots = colonyLevel * 3;
+   if (colonyLevel == 1) slots = 5;
+   if (colonyLevel == 2) slots = 7;
+   break;
+  case (PLANET_TYPES.ORGANIC):
+  case (PLANET_TYPES.VEGETATIVE):
+   slots = 3 + (colonyLevel * 3);
+   break;
+ }
+ return slots;
 }
 
 
