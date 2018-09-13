@@ -179,7 +179,28 @@ function getPlanetModifiers(planetTypeValue) {
  var m = new MODIFIER_GROUP();
  switch (planetTypeValue) {
   case (PLANET_TYPE.GAS):
-   m.troposphere = random(0.5, 0.8);
+   m.troposphere = random(0.3, 0.5);
+   m.biosphere = random(0.5, 0.7);
+   m.climate = random(0.1, 0.5);
+   m.environment = random(0.1, 0.5);
+   m.geology = random(0.0, 0.1);
+   m.albedo = random(0.1, 0.3);
+   m.ecosystem = random(0.2, 0.4);
+   m.stratosphere = random(1.0, 1.5);
+   break;
+  case (PLANET_TYPES.RADIOACTIVE):
+   break;
+  case (PLANET_TYPES.TOXIC):
+   break;
+  case (PLANET_TYPES.BARREN):
+   break;
+  case (PLANET_TYPES.BARREN):
+   break;
+  case (PLANET_TYPES.ROCKY):
+   break;
+  case (PLANET_TYPES.ORGANIC):
+   break;
+  case (PLANET_TYPES.VEGETATIVE):
    break;
  }
  return m;
