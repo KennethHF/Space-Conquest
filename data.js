@@ -112,6 +112,7 @@ function getPlanetModifiers(planetTypeValue) {
  var m = new MODIFIER_GROUP();
  switch (planetTypeValue) {
   case (PLANET_TYPE.GAS):
+   m.troposphere = random(0.5, 0.8);
    break;
  }
  return m;
