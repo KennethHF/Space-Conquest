@@ -186,21 +186,67 @@ function getPlanetModifiers(planetTypeValue) {
    m.geology = random(0.0, 0.1);
    m.albedo = random(0.1, 0.3);
    m.ecosystem = random(0.2, 0.4);
-   m.stratosphere = random(1.0, 1.5);
+   m.stratosphere = random(1.35, 1.5);
    break;
   case (PLANET_TYPES.RADIOACTIVE):
+   m.troposphere = random(0.5, 1.0);
+   m.biosphere = random(0.5, 0.9);
+   m.climate = random(0.8, 1.2);
+   m.environment = random(0.5, 0.9);
+   m.geology = 0.0;
+   m.albedo = 0.0;
+   m.ecosystem = 0.0;
+   m.stratosphere = random(1.0, 1.5);
    break;
   case (PLANET_TYPES.TOXIC):
+   m.troposphere = random(0.5, 1.0);
+   m.biosphere = random(0.5, 0.7);
+   m.climate = random(0.5, 0.7);
+   m.environment = 0.0;
+   m.geology = 0.0;
+   m.albedo = 0.0;
+   m.ecosystem = 0.0;
+   m.stratosphere = random(0.9, 1.3);
    break;
   case (PLANET_TYPES.BARREN):
-   break;
-  case (PLANET_TYPES.BARREN):
+   m.troposphere = random(0.7, 1.1);
+   m.biosphere = random(0.7, 1.0);
+   m.climate = random(0.8, 1.3);
+   m.environment = 0.0;
+   m.geology = 0.0;
+   m.albedo = 0.0;
+   m.ecosystem = 0.0;
+   m.stratosphere = random(0.7, 1.1);
    break;
   case (PLANET_TYPES.ROCKY):
+   m.troposphere = random(0.9, 1.35);
+   m.biosphere = random(0.8, 1.1);
+   m.climate = random(0.9, 1.3);
+   m.environment = 0.0;
+   m.geology = 0.0;
+   m.albedo = 0.0;
+   m.ecosystem = random(;
+   m.stratosphere = random(0.5, 0.9);
    break;
   case (PLANET_TYPES.ORGANIC):
+   m.troposphere = random(1.0, 1.5);
+   m.biosphere = random(0.9, 1.4);
+   m.climate = random(1.0, 1.4);
+   m.environment = 0.0;
+   m.geology = 0.0;
+   m.albedo = 0.0;
+   m.ecosystem = random(1.0, 1.5);
+   m.stratosphere = random(0.2, 0.6);
    break;
   case (PLANET_TYPES.VEGETATIVE):
+   m.troposphere = random(1.0, 1.5);
+   m.biosphere = random(1.0, 1.5);
+   m.climate = random(1.0, 1.5);
+   m.environment = random(0.8, 1.1);
+   m.geology = random(0.5, 0.7);
+   m.albedo = random(0.5, 1.0);
+   m.ecosystem = random(0.8, 1.3);
+   m.stratosphere = random(0.1, 0.5);
    break;
  }
  return m;
