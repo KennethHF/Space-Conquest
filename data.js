@@ -172,7 +172,7 @@ var MODIFIER_VALUE = {
  POOR : function() { return random(0.7, 1.1); },
  BAD : function() { return random(0.5, 0.9); },
  WORST : function() { return random(0.3, 0.7); },
- ZERO : function() { return 0.0; }
+ NONE : function() { return 0.0; }
 };
 
 function getModifierValueName(modValue) {
@@ -201,72 +201,72 @@ function getPlanetModifiers(planetTypeValue) {
  switch (planetTypeValue) {
   case (PLANET_TYPE.GAS):
    m.troposphere = MODIFIER_VALUE.WORST();
-   m.biosphere = 0.0;
-   m.climate = 0.0;
-   m.environment = 0.0;
-   m.geology = 0.0;
-   m.albedo = 0.0;
-   m.ecosystem = 0.0;
+   m.biosphere = MODIFIER_VALUE.WORST();
+   m.climate = MODIFIER_VALUE.POOR();
+   m.environment = MODIFIER_VALUE.NONE();
+   m.geology = MODIFIER_VALUE.NONE();
+   m.albedo = MODIFIER_VALUE.WORST();
+   m.ecosystem = MODIFIER_VALUE.POOR();
    m.stratosphere = MODIFIER_VALUE.BEST();
    break;
   case (PLANET_TYPES.RADIOACTIVE):
    m.troposphere = MODIFIER_VALUE.BAD();
-   m.biosphere = 0.0;
-   m.climate = 0.0;
-   m.environment = 0.0;
-   m.geology = 0.0;
-   m.albedo = 0.0;
-   m.ecosystem = 0.0;
+   m.biosphere = MODIFIER_VALUE.BAD();
+   m.climate = MODIFIER_VALUE.POOR();
+   m.environment = MODIFIER_VALUE.POOR();
+   m.geology = MODIFIER_VALUE.BETTER();
+   m.albedo = MODIFIER_VALUE.BEST();
+   m.ecosystem = MODIFIER_VALUE.GOOD();
    m.stratosphere = MODIFIER_VALUE.BETTER();
    break;
   case (PLANET_TYPES.TOXIC):
    m.troposphere = MODIFIER_VALUE.POOR();
-   m.biosphere = 0.0;
-   m.climate = 0.0;
-   m.environment = 0.0;
-   m.geology = 0.0;
-   m.albedo = 0.0;
-   m.ecosystem = 0.0;
+   m.biosphere = MODIFIER_VALUE.POOR();
+   m.climate = MODIFIER_VALUE.POOR();
+   m.environment = MODIFIER_VALUE.AVERAGE();
+   m.geology = MODIFIER_VALUE.BEST();
+   m.albedo = MODIFIER_VALUE.BETTER();
+   m.ecosystem = MODIFIER_VALUE.BEST();
    m.stratosphere = MODIFIER_VALUE.GOOD();
    break;
   case (PLANET_TYPES.BARREN):
    m.troposphere = MODIFIER_VALUE.AVERAGE();
-   m.biosphere = 0.0;
-   m.climate = 0.0;
-   m.environment = 0.0;
-   m.geology = 0.0;
-   m.albedo = 0.0;
-   m.ecosystem = 0.0;
+   m.biosphere = MODIFIER_VALUE.AVERAGE();
+   m.climate = MODIFIER_VALUE.AVERAGE();
+   m.environment = MODIFIER_VALUE.BETTER();
+   m.geology = MODIFIER_VALUE.GOOD();
+   m.albedo = MODIFIER_VALUE.GOOD();
+   m.ecosystem = MODIFIER_VALUE.GOOD();
    m.stratosphere = MODIFIER_VALUE.AVERAGE();
    break;
   case (PLANET_TYPES.ROCKY):
    m.troposphere = MODIFIER_VALUE.GOOD();
-   m.biosphere = 0.0;
-   m.climate = 0.0;
-   m.environment = 0.0;
-   m.geology = 0.0;
-   m.albedo = 0.0;
-   m.ecosystem = 0.0;
+   m.biosphere = MODIFIER_VALUE.GOOD();
+   m.climate = MODIFIER_VALUE.GOOD();
+   m.environment = MODIFIER_VALUE.BEST();
+   m.geology = MODIFIER_VALUE.AVERAGE();
+   m.albedo = MODIFIER_VALUE.POOR();
+   m.ecosystem = MODIFIER_VALUE.AVERAGE();
    m.stratosphere = MODIFIER_VALUE.POOR();
    break;
   case (PLANET_TYPES.ORGANIC):
    m.troposphere = MODIFIER_VALUE.BEST();
-   m.biosphere = 0.0;
-   m.climate = 0.0;
-   m.environment = 0.0;
-   m.geology = 0.0;
-   m.albedo = 0.0;
-   m.ecosystem = 0.0;
+   m.biosphere = MODIFIER_VALUE.BETTER();
+   m.climate = MODIFIER_VALUE.BEST();
+   m.environment = MODIFIER_VALUE.BETTER();
+   m.geology = MODIFIER_VALUE.POOR();
+   m.albedo = MODIFIER_VALUE.BAD();
+   m.ecosystem = MODIFIER_VALUE.POOR();
    m.stratosphere = MODIFIER_VALUE.WORST();
    break;
   case (PLANET_TYPES.VEGETATIVE):
    m.troposphere = MODIFIER_VALUE.BETTER();
-   m.biosphere = 0.0;
-   m.climate = 0.0;
-   m.environment = 0.0;
-   m.geology = 0.0;
-   m.albedo = 0.0;
-   m.ecosystem = 0.0;
+   m.biosphere = MODIFIER_VALUE.BEST();
+   m.climate = MODIFIER_VALUE.BETTER();
+   m.environment = MODIFIER_VALUE.GOOD();
+   m.geology = MODIFIER_VALUE.POOR();
+   m.albedo = MODIFIER_VALUE.WORST();
+   m.ecosystem = MODIFIER_VALUE.POOR();
    m.stratosphere = MODIFIER_VALUE.BAD();
    break;
  }
