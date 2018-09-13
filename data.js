@@ -62,7 +62,6 @@ function getRandomPlanetName() {
 }
 
 var PLANET_TYPES = {
- INVALID : -1,
  GAS : 0,
  RADIOACTIVE : 1,
  TOXIC : 2,
@@ -86,7 +85,33 @@ function getPlanetTypeName(planetTypeValue) {
  return typeName;
 }
 
-var RESOURCE_GROUP = function() {
+var RESOURCES = {
+ CITIZENS : 0,
+ FOOD : 1,
+ CREDITS : 2,
+ MATERIALS : 3,
+ METALLICS : 4,
+ ISOTOPES : 5,
+ INNOVATION : 6,
+ FUELS : 7
+};
+
+function getResourceName(resourceIndex) {
+ var rss = "Unknown Resource";
+ switch (resourceIndex) {
+  case (RESOURCES.CITIZENS): rss = "Citizens"; break;
+  case (RESOURCES.FOOD): rss = "Food"; break;
+  case (RESOURCES.CREDITS): rss = "Credits"; break;
+  case (RESOURCES.MATERIALS): rss = "Materials"; break;
+  case (RESOURCES.METALLICS): rss = "Metallics"; break;
+  case (RESOURCES.ISOTOPES): rss = "Isotopes"; break;
+  case (RESOURCES.INNOVATION): rss = "Innovation"; break;
+  case (RESOURCES.FUELS): rss = "Fuels"; break;
+ }
+ return rss;
+}
+
+var RESOURCES_GROUP = function() {
  this.population = 0;
  this.food = 0;
  this.credits = 0;
@@ -96,6 +121,48 @@ var RESOURCE_GROUP = function() {
  this.innovation = 0;
  this.fuels = 0;
 };
+
+var MODIFIERS = {
+ TROPOSPHERE : 0,
+ BIOSPHERE : 1,
+ CLIMATE : 2,
+ ENVIRONMENT : 3,
+ GEOLOGY : 4,
+ ALBEDO : 5,
+ ECOSYSTEM : 6,
+ STRATOSPHERE : 7
+};
+
+function getModifierName(modifierIndex) {
+ var mod = "Unknown Modifier";
+ switch (modifierIndex) {
+  case (MODIFIERS.TROPOSPHERE):
+   mod = "Troposphere - Effects the growth rate of the citizen population.";
+   break;
+  case (MODIFIERS.BIOSPHERE):
+   mod = "Biosphere - Effects the quality of food yields.";
+   break;
+  case (MODIFIERS.CLIMATE):
+   mod = "Climate - Effects the ability of citizens to conduct commerce, impacting credit generation.";
+   break;
+  case (MODIFIERS.ENVIRONMENT):
+   mod = "Environment - Effects the output of materials.";
+   break;
+  case (MODIFIERS.GEOLOGY):
+   mod = "Geology - Effects the output of metallics.";
+   break;
+  case (MODIFIERS.ALBEDO):
+   mod = "Albedo - Effects from solar radiation impact isotope output.";
+   break;
+  case (MODIFIERS.ECOSYSTEM):
+   mod = "Ecosystem - Effects research opportunities for scientists to generate innovation.";
+   break;
+  case (MODIFIERS.STRATOSPHERE):
+   mod = "Stratosphere - Effects the output of fuels harvested from atmospheric gases.";
+   break;
+ }
+ return mod;
+}
 
 var MODIFIER_GROUP = function() {
  this.troposphere = 0.0; //citizen increase
