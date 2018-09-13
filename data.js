@@ -89,28 +89,26 @@ function getPlanetTypeName(planetTypeValue) {
 var RESOURCE_GROUP = function() {
  this.population = 0;
  this.food = 0;
- this.currency = 0;
- this.goods = 0;
- this.lightmaterials = 0;
- this.heavymaterials = 0;
+ this.credits = 0;
+ this.materials = 0;
+ this.metallics = 0;
  this.isotopoes = 0;
  this.innovation = 0;
  this.fuels = 0;
 };
 
 var MODIFIER_GROUP = function() {
- this.troposphere = 0.0; //pop
+ this.troposphere = 0.0; //citizen increase
  this.biosphere = 0.0; //food
- this.climate = 0.0; //currency
- this.environment = 0.0; //goods
- this.geology = 0.0; //light m.
- this.tectonics = 0.0; //heavy m.
+ this.climate = 0.0; //credits
+ this.environment = 0.0; //materials
+ this.geology = 0.0; //metallics
  this.albedo = 0.0; //isotopes
  this.ecosystem = 0.0; //innovation
  this.stratosphere = 0.0; //fuels
 }
 
-function getPlanetResourceModifiers(planetTypeValue) {
+function getPlanetModifiers(planetTypeValue) {
  var m = new MODIFIER_GROUP();
  switch (planetTypeValue) {
   case (PLANET_TYPE.GAS):
