@@ -164,6 +164,27 @@ function getModifierName(modifierIndex) {
  return mod;
 }
 
+var MODIFIER_VALUE = {
+ BEST : function() { return random(1.3, 1.7); },
+ BETTER : function() { return random(1.1, 1.5); },
+ GOOD : function() { return random(0.9, 1.3); },
+ AVERAGE : function() { return random(0.8, 1.2); },
+ POOR : function() { return random(0.7, 1.1); },
+ BAD : function() { return random(0.5, 0.9); },
+ WORST : function() { return random(0.3, 0.7); },
+ ZERO : function() { return 0.0; }
+};
+
+function getModifierValueName(modValue) {
+ var valName = "[UNKNOWN]";
+ if (modValue >= 1.5) valName = "[HIGHEST QUALITY]";
+ if (modValue > 1.2 && modValue < 1.5) valName = "[GOOD QUALITY]";
+ if (modValue >= 0.8 && modValue <= 1.2) valName = "[AVERAGE QUALITY]";
+ if (modValue > 0.5 && modValue < 0.8) valName = "[POOR QUALITY]";
+ if (modValue <= 0.5) valName = "[LOWEST QUALITY]";
+ return valName;
+}
+
 var MODIFIER_GROUP = function() {
  this.troposphere = 0.0; //citizen increase
  this.biosphere = 0.0; //food
@@ -179,74 +200,74 @@ function getPlanetModifiers(planetTypeValue) {
  var m = new MODIFIER_GROUP();
  switch (planetTypeValue) {
   case (PLANET_TYPE.GAS):
-   m.troposphere = random(0.3, 0.5);
-   m.biosphere = random(0.5, 0.7);
-   m.climate = random(0.1, 0.5);
-   m.environment = random(0.1, 0.5);
-   m.geology = random(0.0, 0.1);
-   m.albedo = random(0.1, 0.3);
-   m.ecosystem = random(0.2, 0.4);
-   m.stratosphere = random(1.35, 1.5);
+   m.troposphere = MODIFIER_VALUE.WORST();
+   m.biosphere = 0.0;
+   m.climate = 0.0;
+   m.environment = 0.0;
+   m.geology = 0.0;
+   m.albedo = 0.0;
+   m.ecosystem = 0.0;
+   m.stratosphere = MODIFIER_VALUE.BEST();
    break;
   case (PLANET_TYPES.RADIOACTIVE):
-   m.troposphere = random(0.5, 1.0);
-   m.biosphere = random(0.5, 0.9);
-   m.climate = random(0.8, 1.2);
-   m.environment = random(0.5, 0.9);
+   m.troposphere = MODIFIER_VALUE.BAD();
+   m.biosphere = 0.0;
+   m.climate = 0.0;
+   m.environment = 0.0;
    m.geology = 0.0;
    m.albedo = 0.0;
    m.ecosystem = 0.0;
-   m.stratosphere = random(1.0, 1.5);
+   m.stratosphere = MODIFIER_VALUE.BETTER();
    break;
   case (PLANET_TYPES.TOXIC):
-   m.troposphere = random(0.5, 1.0);
-   m.biosphere = random(0.5, 0.7);
-   m.climate = random(0.5, 0.7);
+   m.troposphere = MODIFIER_VALUE.POOR();
+   m.biosphere = 0.0;
+   m.climate = 0.0;
    m.environment = 0.0;
    m.geology = 0.0;
    m.albedo = 0.0;
    m.ecosystem = 0.0;
-   m.stratosphere = random(0.9, 1.3);
+   m.stratosphere = MODIFIER_VALUE.GOOD();
    break;
   case (PLANET_TYPES.BARREN):
-   m.troposphere = random(0.7, 1.1);
-   m.biosphere = random(0.7, 1.0);
-   m.climate = random(0.8, 1.3);
+   m.troposphere = MODIFIER_VALUE.AVERAGE();
+   m.biosphere = 0.0;
+   m.climate = 0.0;
    m.environment = 0.0;
    m.geology = 0.0;
    m.albedo = 0.0;
    m.ecosystem = 0.0;
-   m.stratosphere = random(0.7, 1.1);
+   m.stratosphere = MODIFIER_VALUE.AVERAGE();
    break;
   case (PLANET_TYPES.ROCKY):
-   m.troposphere = random(0.9, 1.35);
-   m.biosphere = random(0.8, 1.1);
-   m.climate = random(0.9, 1.3);
+   m.troposphere = MODIFIER_VALUE.GOOD();
+   m.biosphere = 0.0;
+   m.climate = 0.0;
    m.environment = 0.0;
    m.geology = 0.0;
    m.albedo = 0.0;
-   m.ecosystem = random(;
-   m.stratosphere = random(0.5, 0.9);
+   m.ecosystem = 0.0;
+   m.stratosphere = MODIFIER_VALUE.POOR();
    break;
   case (PLANET_TYPES.ORGANIC):
-   m.troposphere = random(1.0, 1.5);
-   m.biosphere = random(0.9, 1.4);
-   m.climate = random(1.0, 1.4);
+   m.troposphere = MODIFIER_VALUE.BEST();
+   m.biosphere = 0.0;
+   m.climate = 0.0;
    m.environment = 0.0;
    m.geology = 0.0;
    m.albedo = 0.0;
-   m.ecosystem = random(1.0, 1.5);
-   m.stratosphere = random(0.2, 0.6);
+   m.ecosystem = 0.0;
+   m.stratosphere = MODIFIER_VALUE.WORST();
    break;
   case (PLANET_TYPES.VEGETATIVE):
-   m.troposphere = random(1.0, 1.5);
-   m.biosphere = random(1.0, 1.5);
-   m.climate = random(1.0, 1.5);
-   m.environment = random(0.8, 1.1);
-   m.geology = random(0.5, 0.7);
-   m.albedo = random(0.5, 1.0);
-   m.ecosystem = random(0.8, 1.3);
-   m.stratosphere = random(0.1, 0.5);
+   m.troposphere = MODIFIER_VALUE.BETTER();
+   m.biosphere = 0.0;
+   m.climate = 0.0;
+   m.environment = 0.0;
+   m.geology = 0.0;
+   m.albedo = 0.0;
+   m.ecosystem = 0.0;
+   m.stratosphere = MODIFIER_VALUE.BAD();
    break;
  }
  return m;
