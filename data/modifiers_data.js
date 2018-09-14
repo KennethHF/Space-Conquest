@@ -62,6 +62,10 @@ function getModifierValueName(modValue) {
 }
 
 var MODIFIERS_GROUP = function () {
+ this.reset();
+};
+
+MODIFIERS_GROUP.prototype.reset = function() {
  this.troposphere = 0.0; //effects RESOURCES.CITIZENS
  this.biosphere = 0.0; //effects RESOURCES.FOOD
  this.climate = 0.0; //effects RESOURCES.CREDITS
@@ -70,4 +74,4 @@ var MODIFIERS_GROUP = function () {
  this.albedo = 0.0; //effects RESOURCES.ISOTOPES
  this.ecosystem = 0.0; //effects RESOURCES.INNOVATION
  this.stratosphere = 0.0; //effects RESOURCES.FUELS
-};
+}
