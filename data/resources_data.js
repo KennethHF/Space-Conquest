@@ -25,14 +25,7 @@ function getResourceName(resourceIndex) {
 }
 
 var RESOURCES_GROUP = function () {
- this.citizens = 0;
- this.food = 0;
- this.credits = 0;
- this.materials = 0;
- this.metallics = 0;
- this.isotopoes = 0;
- this.innovation = 0;
- this.fuels = 0;
+ this.reset();
 };
 
 RESOURCES_GROUP.prototype.reset = function() {
