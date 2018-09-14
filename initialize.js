@@ -1,10 +1,5 @@
 var window = null;
 
-var imgGalaxy;
-var imgPlanets;
-var imgFrame;
-var imgStar;
-
 function loadGraphics() {
  imgGalaxy = new Surface("graphics/galaxy.png");
  imgPlanets = new Surface("graphics/planets.png");
